@@ -15,7 +15,9 @@
             ORDER BY categories.categoryID';
         }
         $statement = $db->prepare($query);
-        $statement->bindValue(':categoryID', $categoryID);
+        if($categoryID){
+            $statement->bindValue(':categoryID', $categoryID);
+        }
         $statement->execute();
         $items = $statement->fetchAll();
         $statement->closeCursor();

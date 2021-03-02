@@ -24,6 +24,15 @@ if(!$action) {
 }
 
 switch($action) {
+
+    case "list_items":
+            $categoryName = get_category_name($categoryID);
+            $categories = get_categories();
+            $items = get_items_by_category($categoryID);
+            include('view/item_list.php');
+            break;
+
+
     case "list_categories":
         $categories = get_categories();
         include('view/category_list.php');
