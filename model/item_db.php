@@ -3,13 +3,13 @@
         global $db;
 
         if($categoryID) {
-            $query = 'SELECT todoitems.title, todoitems.description, categories.categoryName
+            $query = 'SELECT todoitems.title, todoitems.itemNum,  todoitems.description, categories.categoryName
             FROM todoitems LEFT JOIN categories
             ON todoitems.categoryID = categories.categoryID
             WHERE todoitems.categoryID = :categoryID 
             ORDER BY todoitems.title';
         } else {
-            $query = 'SELECT todoitems.title, todoitems.description, categories.categoryName
+            $query = 'SELECT todoitems.title, todoitems.itemNum, todoitems.description, categories.categoryName
             FROM todoitems LEFT JOIN categories
             ON todoitems.categoryID = categories.categoryID
             ORDER BY categories.categoryID';
@@ -17,6 +17,7 @@
         $statement = $db->prepare($query);
         if($categoryID){
             $statement->bindValue(':categoryID', $categoryID);
+            $statement->bindValue(':ItemNum', $itemNum);
         }
         $statement->execute();
         $items = $statement->fetchAll();

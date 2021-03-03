@@ -33,7 +33,7 @@
         <div class="list__removeItem">
             <form action="." method="POST">
                 <input type="hidden" name="action" value="delete_item">
-                <input type="hidden" name="ItemNum" value="<?= $item['ItemNum']; ?>">
+                <input type="hidden" name="ItemNum" value="<?= $item['itemNum']; ?>">
                 <button type="submit" class="button delete_bttn">X</button>
             </form>
             </div>

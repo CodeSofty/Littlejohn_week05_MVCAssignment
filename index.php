@@ -44,14 +44,14 @@ switch($action) {
         break;
 
     case "add_item":
-        if($description && $categoryID) {
+        if($description && $categoryID && $title) {
             add_item($categoryID, $description, $title);
-            header("Location: .?categoryID=$categoryID");
         } else {
             $error = "Invalid item data. Check all fields.";
             include('view/error.php');
             exit();
         }
+        header("Location: .?action=list_items");
         break;
 
     case "delete_category":
