@@ -38,7 +38,7 @@
 
 
     try {
-        $db = new PDO('mysql:host=pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=imes85fmrw4t7cfi', $username, $password);
+        $db = new PDO('mysql://o5zwd89th0bp1tlx:p16f6agy45od7l4l@pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/imes85fmrw4t7cfi;dbname=imes85fmrw4t7cfi', $username, $password);
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         echo $error_message;
